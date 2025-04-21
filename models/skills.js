@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const skillSchema = new mongoose.Schema({
     skillsArray: {
@@ -16,4 +16,4 @@ skillSchema.statics.getSkillsDocument = async function () {
     return doc;
 };
 
-module.exports = mongoose.model('Skill', skillSchema);
+export const Skill = mongoose.model('Skill', skillSchema);
