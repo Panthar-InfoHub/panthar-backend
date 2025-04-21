@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const projectSchema = new mongoose.Schema({
     name: {
@@ -11,7 +11,7 @@ const projectSchema = new mongoose.Schema({
     liveLink: {
         type: String,
         validate: {
-            validator: function(v) {
+            validator: function (v) {
                 return /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/.test(v);
             },
             message: props => `${props.value} is not a valid URL!`
@@ -20,7 +20,7 @@ const projectSchema = new mongoose.Schema({
     githubLink: {
         type: String,
         validate: {
-            validator: function(v) {
+            validator: function (v) {
                 return /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/.test(v);
             },
             message: props => `${props.value} is not a valid URL!`
@@ -31,4 +31,4 @@ const projectSchema = new mongoose.Schema({
     }]
 }, { timestamps: true });
 
-module.exports = mongoose.model('Project', projectSchema);
+export const Project = mongoose.model('Project', projectSchema);
