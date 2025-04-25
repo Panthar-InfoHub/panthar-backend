@@ -1,4 +1,4 @@
-const { default: mongoose } = require("mongoose");
+import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -18,6 +18,16 @@ const userSchema = new mongoose.Schema({
         required: [true, "Phone number is required"],
         trim: true,
         match: [/^[0-9]{10}$/, 'Please provide a valid phone number'],
+    },
+    college_name: {
+        type: String,
+        required: [true, "College name is required"],
+        trim: true,
+    },
+    program: {
+        type: String,
+        required: [true, "Program name is required"],
+        trim: true,
     },
     attendance: [{
         date: {
