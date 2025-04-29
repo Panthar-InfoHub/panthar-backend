@@ -29,6 +29,11 @@ const userSchema = new mongoose.Schema({
         required: [true, "Program name is required"],
         trim: true,
     },
+    program_type: {
+        type: String,
+        required: [true, "Program type is required"],
+        trim: true,
+    },
     attendance: [{
         date: {
             type: Date,
