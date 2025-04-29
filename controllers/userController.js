@@ -2,10 +2,10 @@ import { User } from "../models/User.js";
 
 export const registerUser = async (req, res) => {
     try {
-        const { name, email, phone, college_name, program } = req.body;
+        const { name, email, phone, college_name, program, program_type } = req.body;
 
         console.debug("user credential received ==> ", req.body)
-        if (!name || !email || !phone || !college_name || !program) {
+        if (!name || !email || !phone || !college_name || !program || !program_type) {
             return res.status(400).json({ message: "All fields are required", success: false });
         }
 
@@ -21,7 +21,8 @@ export const registerUser = async (req, res) => {
             email,
             phone,
             college_name,
-            program
+            program,
+            program_type
         });
 
         console.debug("user created ==> ", user)
